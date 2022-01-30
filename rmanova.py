@@ -15,6 +15,9 @@ OUTPUT = "output"
 
 def main():
     for fname in os.listdir(INPUT):
+        if os.path.splitext(fname)[1]!=".csv":
+            # Ignore if the file is not a csv file
+            continue
         fpath = os.path.join(INPUT, fname)
         print("Reading file: {}".format(fpath))
         df = pd.read_csv(fpath)
